@@ -26,6 +26,9 @@
         "stylus": "0.42.3",
         "nib": "~1.0.2"
     },
+    "devDependencies": {
+        "express-livereload": "0.0.24"
+    }
     "engines": {
         "node": ">=0.10.0"
     }
