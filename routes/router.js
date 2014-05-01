@@ -95,15 +95,22 @@ router.post('/results', function (req, res, next) {
         vpHeight = cleansePostData(768, req.body.vpHeight), // phantomjs arg 6
         username = cleansePostData('username', req.body.username), // phantomjs arg 7
         password = cleansePostData('password', req.body.password), // phantomjs arg 8
-        renderDelay = cleansePostData(10, req.body.renderDelay); // phantomjs arg 9
+        renderDelay = cleansePostData(10, req.body.renderDelay), // phantomjs arg 9
+        urlApprove = function () {
+            if (url.indexOf('http://') === -1 && url.indexOf('https://') === -1) {
+                return 'http://' + url;
+            }
+            return url;
+        },
+        nameCleanse = imageName.replace(/[^\w]/gi, '');
 
     // console.log('clearing directory');
     cs.clearScreenshots(staticPath);
 
-    console.log('Sending Data to PhantomJS: ', url, staticPath, imageName, outputType, vpWidth, vpHeight, username, password, renderDelay);
+    console.log('Sending Data to PhantomJS: ', urlApprove(), staticPath, nameCleanse, outputType, vpWidth, vpHeight, username, password, renderDelay);
 
     // execute child process running phantomjs
-    child = execFile(phantomjs, [renderUrl, url, staticPath, imageName, outputType, vpWidth, vpHeight, username, password, renderDelay], function (error, stdout, stderr) {
+    child = execFile(phantomjs, [renderUrl, urlApprove(), staticPath, nameCleanse, outputType, vpWidth, vpHeight, username, password, renderDelay], function (error, stdout, stderr) {
         if (stdout !== null) {
             var results = JSON.parse(stdout);
             if (results.status === 'fail') {
