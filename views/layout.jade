@@ -1,0 +1,30 @@
+| <!DOCTYPE html>
+| <!--[if IE 9]>          <html lang="en" class="lt-ie10 ie9"> <![endif]-->
+| <!--[if IE 10]>         <html lang="en" class="ie10"> <![endif]-->
+| <!--[if gt IE 10]><!--> <html lang="en"> <!--<![endif]-->
+html
+    head
+        title= title
+        meta(name='description', content= description)
+
+        link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Pinyon+Script')
+        link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Telex')
+        link(rel='stylesheet', href='/css/bootstrap/bootstrap.css')
+        link(rel='stylesheet', href='/css/style.css')
+
+        != LRScript
+
+    body(role='document')
+
+        .page-header
+            h1
+                a(href='/home')= header
+
+        .container-fluid.main(role='main')
+
+            block content
+
+        script(src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js")
+        script
+            | window.jQuery || document.write('<script src="/js/jquery-2.1.0.min.js"><\/script>')
+        script(src="/js/app.js")

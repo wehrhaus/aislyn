@@ -1,0 +1,16 @@
+extends layout
+
+block content
+
+    .panel.panel-default
+        .panel-heading
+            .row.split
+                .col-sm-5= url
+                .col-sm-2
+                .col-sm-5
+                    a(href='/home').pull-right= returnHome
+        .panel-body
+            p= instructions
+            for val, key in imgData
+                a(href= val, download= key)
+                    img(src= val).img-responsive.img-thumbnail.center-block

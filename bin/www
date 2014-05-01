@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+var debug = require('debug')('aislyn'),
+    app = require('../app'),
+    server = function () {};
+
+app.set('port', process.env.PORT || 3000);
+
+server = app.listen(app.get('port'), function() {
+    debug('Express server listening on port ' + server.address().port + ', running in ' + app.get('env') + ' mode');
+});
+
+
+process.on('SIGTERM', function () {
+    server.close(function () {
+        console.log('Closed out connections');
+    });
+
+    setTimeout(function () {
+        console.error('Could not close connections, forcing shutdown');
+        process.exit(1);
+    }, 30*1000);
+});
+

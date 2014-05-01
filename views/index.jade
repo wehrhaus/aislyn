@@ -1,0 +1,90 @@
+extends layout
+
+block content
+
+    form.form-horizontal.aislyn(role="form", method="post", action="/results", accept-charset="utf-8")
+
+        .form-group.has-feedback
+            label(for="url").col-sm-2.control-label= url
+                mark *
+            .col-sm-10
+                input.form-control#url(type="text", name="url", placeholder= urlPlaceholder, autofocus="autofocus", required="required", aria-required="true")
+                span.glyphicon.glyphicon-globe.form-control-feedback
+
+        .form-group.has-feedback
+            label(for="imageName").col-sm-2.control-label= imageName
+                mark *
+            .col-sm-10
+                input.form-control#url(type="text", name="imageName", placeholder= imageNamePlaceholder, autofocus="autofocus", required="required", aria-required="true")
+                span.glyphicon.glyphicon-picture.form-control-feedback
+
+        .form-group.has-feedback
+            label.col-sm-2.control-label= outputMessage
+            .col-sm-10
+                label.radio-inline
+                    input.outputType(type="radio", name="outputType" value="png" checked)
+                    != outputTypePng
+                label.radio-inline
+                    input.outputType(type="radio", name="outputType", value="pdf" disabled)
+                    != outputTypePdf
+        .row.split
+
+            .col-sm-2
+            .col-sm-10.options
+                .optionsHeader
+                    span.glyphicon.glyphicon-cog.optionsIcon
+                    != options
+                .optionsHR
+
+            .col-sm-2
+            .col-sm-5
+                .form-group.has-feedback
+                    label(for="renderDelay").col-sm-12.control-label= renderDelay
+                    .col-sm-12
+                        input.form-control#renderDelay(type="number", name="renderDelay", placeholder= renderDelayPlaceholder, patter="[0-9]+")
+                        span.glyphicon.glyphicon-time.form-control-feedback
+
+                .form-group.has-feedback
+                    label(for="vpWidth").col-sm-12.control-label= vpWidth
+                    .col-sm-12
+                        input.form-control#vpWidth(type="number", name="vpWidth", placeholder= vpWidthPlaceholder, pattern="[0-9]+")
+                        span.glyphicon.glyphicon-sound-stereo.form-control-feedback
+
+                .form-group.has-feedback
+                    label(for="vpHeight").col-sm-12.control-label= vpHeight
+                    .col-sm-12
+                        input.form-control#vpHeight(type="number", name="vpHeight", placeholder= vpHeightPlaceholder, pattern="[0-9]+")
+                        span.glyphicon.glyphicon-sound-stereo.form-control-feedback
+
+            .col-sm-5
+                .form-group.has-feedback
+                    label(for="username").col-sm-12.control-label= username
+                    .col-sm-12
+                        input.form-control#user(type="text", name="username", placeholder= usernamePlaceholder)
+                        span.glyphicon.glyphicon-question-sign.form-control-feedback
+
+                .form-group.has-feedback
+                    label(for="password").col-sm-12.control-label= password
+                    .col-sm-12
+                        input.form-control#pass(type="password", name="password", placeholder= passwordPlaceholder)
+                        span.glyphicon.glyphicon-question-sign.form-control-feedback
+
+        .form-group
+            .col-sm-2
+            .col-sm-10
+                button.btn.btn-default.submit(type="submit")
+                    span.glyphicon.glyphicon-ok-circle.btnIcon
+                    != submit
+
+    .progressModule.hidden
+
+        hr
+
+        .row
+            label.col-sm-2.control-label= progressCaption
+            .col-sm-10
+                .progress.progress-striped.active
+                    .progress-bar(role="progressbar" aria-valuenow="0", aria-valuemin="0", aria-valuemax="100", style="width: 0")
+                        .progressComplete
+                            span.percentage
+                            span= progressComplete

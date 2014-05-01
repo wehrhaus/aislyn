@@ -1,0 +1,28 @@
+{
+    "name": "aislyn",
+    "title": "Aislyn",
+    "description": "Given a URL -> return the url as a screenshot via png. Image dimensions will be based off Viewport Width/Height specified in form.",
+    "version": "0.0.1",
+    "author": {
+        "name": [ "Justin Wehrman" ],
+        "email": [ "Justin.Wehrman@RedFuse.com" ]
+    },
+    "readmeFilename": "README.md",
+    "private": true,
+    "scripts": {
+        "start": "node ./bin/www"
+    },
+    "dependencies": {
+        "express": "~4.0.0",
+        "static-favicon": "~1.0.0",
+        "morgan": "~1.0.0",
+        "body-parser": "~1.0.0",
+        "debug": "~0.7.4",
+        "jade": "~1.3.0",
+        "stylus": "0.42.3",
+        "nib": "~1.0.2"
+    },
+    "engines": {
+        "node": ">=0.10.0"
+    }
+}

@@ -1,0 +1,97 @@
+@import 'nib'
+
+darkGray = #1c1c1c
+mainGray = #222222
+lightGray = #4c4c4c
+hiliteGray = #d9d9d9
+
+uberMinimalist = false;
+
+html
+    height 100%
+
+body
+    font-family 'Telex', sans-serif
+    font-weight 400
+    if (!uberMinimalist)
+        background radial-gradient(80% white, hiliteGray)
+
+a
+    color: #00B7FF
+
+.bodyPadding
+    padding-right 20px
+    padding-left 20px
+
+.page-header
+    if (!uberMinimalist)
+        background linear-gradient(bottom, white, mainGray)
+        box-shadow 0 0 13px darkGray
+    font-family 'Pinyon Script', 'cursive'
+    font-weight 400
+    margin 0 0 27px
+    padding-top 40px
+    border-bottom 1px solid hiliteGray
+    @extend .bodyPadding
+
+    h1
+        margin 0 0 -27px
+        padding 0 0 0 10px
+        font-size 77px
+        color lightGray
+        text-shadow 1px 1px white
+        if (uberMinimalist)
+            display none
+
+        a
+            color lightGray
+            text-decoration none
+
+.main
+    @extend .bodyPadding
+
+.control-label
+    color lightGray
+
+mark
+    color lightGray
+    background-color transparent
+
+.split
+    .control-label
+        text-align left
+        margin-bottom 7px
+        margin-left 3px
+
+.progressSection
+    text-align right
+
+.options
+    margin 20px 0
+
+.optionsHeader
+    background-color white
+    display inline-block
+    position relative
+    z-index 2
+    padding 0 16px
+    color lightGray
+
+.optionsHR
+    background-color hiliteGray
+    display block
+    height 1px
+    position absolute
+    top 0
+    right 0
+    bottom 0
+    left 0
+    margin auto
+    width 80%
+
+.btnIcon,
+.optionsIcon
+    margin-right 3px
+
+.progress-bar
+    transition-timing-function linear

@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h2= message
+  if err
+    pre #{err}
+  if suggestions
+    p= suggestions
+
+  a(href='/home')= retry

@@ -1,0 +1,95 @@
+html {
+  height: 100%;
+}
+body {
+  font-family: 'Telex', sans-serif;
+  font-weight: 400;
+  background: -webkit-radial-gradient(#fff 80%, #d9d9d9);
+  background: -moz-radial-gradient(#fff 80%, #d9d9d9);
+  background: -o-radial-gradient(#fff 80%, #d9d9d9);
+  background: -ms-radial-gradient(#fff 80%, #d9d9d9);
+  background: radial-gradient(#fff 80%, #d9d9d9);
+}
+a {
+  color: #00b7ff;
+}
+.bodyPadding,
+.page-header,
+.main {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.page-header {
+  background: -webkit-linear-gradient(bottom, #fff, #222);
+  background: -moz-linear-gradient(bottom, #fff, #222);
+  background: -o-linear-gradient(bottom, #fff, #222);
+  background: -ms-linear-gradient(bottom, #fff, #222);
+  background: linear-gradient(to top, #fff, #222);
+  -webkit-box-shadow: 0 0 13px #1c1c1c;
+  box-shadow: 0 0 13px #1c1c1c;
+  font-family: 'Pinyon Script', 'cursive';
+  font-weight: 400;
+  margin: 0 0 27px;
+  padding-top: 40px;
+  border-bottom: 1px solid #d9d9d9;
+}
+.page-header h1 {
+  margin: 0 0 -27px;
+  padding: 0 0 0 10px;
+  font-size: 77px;
+  color: #4c4c4c;
+  text-shadow: 1px 1px #fff;
+}
+.page-header h1 a {
+  color: #4c4c4c;
+  text-decoration: none;
+}
+.control-label {
+  color: #4c4c4c;
+}
+mark {
+  color: #4c4c4c;
+  background-color: transparent;
+}
+.split .control-label {
+  text-align: left;
+  margin-bottom: 7px;
+  margin-left: 3px;
+}
+.progressSection {
+  text-align: right;
+}
+.options {
+  margin: 20px 0;
+}
+.optionsHeader {
+  background-color: #fff;
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  padding: 0 16px;
+  color: #4c4c4c;
+}
+.optionsHR {
+  background-color: #d9d9d9;
+  display: block;
+  height: 1px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 80%;
+}
+.btnIcon,
+.optionsIcon {
+  margin-right: 3px;
+}
+.progress-bar {
+  -webkit-transition-timing-function: linear;
+  -moz-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  -ms-transition-timing-function: linear;
+  transition-timing-function: linear;
+}
