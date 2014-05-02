@@ -9,6 +9,7 @@ var appData = {
                 title: 'Error | Aislyn'
             },
             pageData: {
+                header: 'Aislyn',
                 message: 'Temporary Error',
                 phantomjsLoadError: 'There was an error accessing the url provided.',
                 phantomjsSuggestions: 'Try hitting the url directly to ensure the page loads, if it redirects to a new page use that url instead.',
@@ -58,13 +59,13 @@ var appData = {
 };
 
 // return meta item
-exports.getMeta = function (content) {
+module.exports.getMeta = function (content) {
     return appData.meta[content];
 };
 
 // return page specific meta if it exists
 // otherwise return base meta data
-exports.getPageMeta = function (page, content) {
+module.exports.getPageMeta = function (page, content) {
     if (appData.page[page].meta[content]) {
         return appData.page[page].meta[content];
     } else {
@@ -73,13 +74,13 @@ exports.getPageMeta = function (page, content) {
 };
 
 // set additional page properties
-exports.setPageData = function (page, key, value) {
+module.exports.setPageData = function (page, key, value) {
     appData.page[page].pageData[key] = value;
     return this;
 };
 
 // return all page data
-exports.getPageData = function (page) {
+module.exports.getPageData = function (page) {
     this.setPageData(page, 'title', this.getPageMeta(page, 'title'));
     this.setPageData(page, 'description', this.getPageMeta(page, 'description'));
     return appData.page[page].pageData;

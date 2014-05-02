@@ -20,6 +20,9 @@ Given a URL -> return the url as a screenshot via png.
 ### Install Dependencies
     npm install
 
+### Set correct phantomjs binary
+    Includes a `darwin` binary and a `linux` binary. This can be configured by setting process.env.PHANTOM_JS_BIN. Defaul set to `linux` in /routes/router.js
+
 ### Start Server
     npm start
 

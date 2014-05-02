@@ -2,6 +2,7 @@ var express = require('express'),
     appData = require('../models/appData'),
     path = require('path'),
     router = express.Router(),
+    phantomjsbin = process.env.PHANTOM_JS_BIN || 'phantomjs-darwin', // interchangeable with `-linux`
     cleansePostData, stripFSPath, addPostData, renderPage;
 
 // ensures fallback data is sent to post
@@ -82,10 +83,9 @@ router.get('/home', function (req, res, next) {
 router.post('/results', function (req, res, next) {
 
     // configs for posting data to phantomjs
-    var execFile = require('child_process').execFile,
+    var execFile = require('child_process').execFile, child,
         cs = require('../services/clearScreenshotDirectory'),
-        child,
-        phantomjs = path.join(__dirname, '../bin/phantomjs'),
+        phantomjs = path.join(__dirname, '../bin/' + phantomjsbin),
         renderUrl = path.join(__dirname, '../services/renderUrl.js'),
         url = req.body.url, // phantomjs arg 1
         staticPath = path.join(__dirname, '../public/images/screenshots/'), // phantomjs arg 2
@@ -107,7 +107,7 @@ router.post('/results', function (req, res, next) {
     // console.log('clearing directory');
     cs.clearScreenshots(staticPath);
 
-    console.log('Sending Data to PhantomJS: ', urlApprove(), staticPath, nameCleanse, outputType, vpWidth, vpHeight, username, password, renderDelay);
+    console.log('Sending Data to PhantomJS: ',phantomjs, urlApprove(), staticPath, nameCleanse, outputType, vpWidth, vpHeight, username, password, renderDelay);
 
     // execute child process running phantomjs
     child = execFile(phantomjs, [renderUrl, urlApprove(), staticPath, nameCleanse, outputType, vpWidth, vpHeight, username, password, renderDelay], function (error, stdout, stderr) {

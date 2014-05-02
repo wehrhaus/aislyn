@@ -3,3 +3,4 @@ instances: 1
 framework:
   type: node
 mem: 512
+command: DEBUG=aislyn

@@ -1,6 +1,6 @@
 var fs = require('fs');
 
-exports.clearScreenshots = function (screenshotDirectory) {
+module.exports.clearScreenshots = function (screenshotDirectory) {
     var files = [];
     if (fs.existsSync(screenshotDirectory)) {
         files = fs.readdirSync(screenshotDirectory);
