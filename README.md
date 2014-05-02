@@ -24,7 +24,7 @@ Given a URL -> return the url as a screenshot via png.
     npm start
 
 ### Open in browser
-    localhost:3000
+    localhost:1337
 
 
 ## License

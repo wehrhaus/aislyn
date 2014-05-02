@@ -14,7 +14,7 @@
     "readmeFilename": "README.md",
     "private": true,
     "scripts": {
-        "start": "node ./bin/www"
+        "start": "node runner"
     },
     "dependencies": {
         "express": "~4.0.0",
@@ -28,7 +28,7 @@
     },
     "devDependencies": {
         "express-livereload": "0.0.24"
-    }
+    },
     "engines": {
         "node": ">=0.10.0"
     }

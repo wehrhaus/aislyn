@@ -1,5 +1,5 @@
 var express = require('express'),
-    appData = require('../appData'),
+    appData = require('../models/appData'),
     path = require('path'),
     router = express.Router(),
     cleansePostData, stripFSPath, addPostData, renderPage;
@@ -83,10 +83,10 @@ router.post('/results', function (req, res, next) {
 
     // configs for posting data to phantomjs
     var execFile = require('child_process').execFile,
-        cs = require('../bin/clearScreenshotDirectory'),
+        cs = require('../services/clearScreenshotDirectory'),
         child,
         phantomjs = path.join(__dirname, '../bin/phantomjs'),
-        renderUrl = path.join(__dirname, '../bin/renderUrl.js'),
+        renderUrl = path.join(__dirname, '../services/renderUrl.js'),
         url = req.body.url, // phantomjs arg 1
         staticPath = path.join(__dirname, '../public/images/screenshots/'), // phantomjs arg 2
         imageName = req.body.imageName, // phantomjs arg 3
