@@ -5,8 +5,8 @@
 
 ## example:
 ## crontab -e
-## 00,30 * * * * /Full/Path/To/aislyn/bin/clearScreenshotsDirectory
+## 00,30 * * * * /Path/To/aislyn/bin/clearScreenshotsDirectory
 
 ## will execute every 00[min] and 30[min] of every hour, every day, every month, every weekday
 
-rm /Full/Path/To/aislyn/public/images/screenshots/*.png
+find /Path/To/aislyn/public/images/screenshots/ -name "*.png" -exec rm {} \;

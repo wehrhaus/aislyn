@@ -1,4 +1,5 @@
-var express = require('express'),
+var app = require('../controllers/app'),
+    express = require('express'),
     appData = require('../models/appData'),
     path = require('path'),
     router = express.Router(),

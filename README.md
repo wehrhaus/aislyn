@@ -29,6 +29,22 @@ Given a URL -> return the url as a screenshot via png.
 ### Open in browser
     localhost:1337
 
+## Screenshot Directory Management
+This is a simple implementation which stores each screenshot to the filesystem in:
+
+    /public/images/screenshots/
+
+It is recommended to setup a cron job to run `clearScreenshotsDirectory` which will wipe out all *.png files from the __screenshots__ directory
+
+* The following will run `clearScreenshotsDirectory` at 11:00am every day of every month, each weekday
+
+
+        crontab -e
+        00 23 * * * /Path/To/aislyn/bin/clearScreenshotsDirectory
+
+* For more information visit [https://help.ubuntu.com/community/CronHowto](https://help.ubuntu.com/community/CronHowto)
+
+
 
 ## License
 See LICENSE for details
