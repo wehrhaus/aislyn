@@ -2,5 +2,5 @@ name: aislyn
 instances: 1
 framework:
   type: node
-mem: 512
+mem: 256
 command: DEBUG=aislyn

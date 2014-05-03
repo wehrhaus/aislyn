@@ -76,7 +76,6 @@ router.get('/home', function (req, res, next) {
     res.render('index', appData.getPageData('home'), function (err, html) {
         renderPage(res, err, html);
     });
-
 });
 
 // render results
@@ -84,7 +83,6 @@ router.post('/results', function (req, res, next) {
 
     // configs for posting data to phantomjs
     var execFile = require('child_process').execFile, child,
-        cs = require('../services/clearScreenshotDirectory'),
         phantomjs = path.join(__dirname, '../bin/' + phantomjsbin),
         renderUrl = path.join(__dirname, '../services/renderUrl.js'),
         url = req.body.url, // phantomjs arg 1
@@ -104,23 +102,22 @@ router.post('/results', function (req, res, next) {
         },
         nameCleanse = imageName.replace(/[^\w]/gi, '');
 
-    // console.log('clearing directory');
-    cs.clearScreenshots(staticPath);
-
     console.log('Sending Data to PhantomJS: ',phantomjs, urlApprove(), staticPath, nameCleanse, outputType, vpWidth, vpHeight, username, password, renderDelay);
 
     // execute child process running phantomjs
     child = execFile(phantomjs, [renderUrl, urlApprove(), staticPath, nameCleanse, outputType, vpWidth, vpHeight, username, password, renderDelay], function (error, stdout, stderr) {
         if (stdout !== null) {
-            var results = JSON.parse(stdout);
+            var results = JSON.parse(stdout),
+                fullImagePath = staticPath + imageName + '.' + outputType;
             if (results.status === 'fail') {
                 renderPage(res, url, '', 'phantomjsLoadError');
             }
             res.render('results', addPostData(stdout, req), function (err, html) {
                 renderPage(res, err, html);
+
             });
         } else {
-            renderPage(res, error, '', true);
+            renderPage(res, error, '', 'phantomjsLoadError');
         }
     });
 

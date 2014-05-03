@@ -1,0 +1,12 @@
+#!/bin/bash
+
+## update path and run with cron
+## see how-to at: https://help.ubuntu.com/community/CronHowto
+
+## example:
+## crontab -e
+## 00,30 * * * * /Full/Path/To/aislyn/bin/clearScreenshotsDirectory
+
+## will execute every 00[min] and 30[min] of every hour, every day, every month, every weekday
+
+rm /Full/Path/To/aislyn/public/images/screenshots/*.png
