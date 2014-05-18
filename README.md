@@ -1,7 +1,7 @@
 # Aislyn
 Given a URL -> return the url as a screenshot via png.
 
-[demo](http://aislyn.justinwehrman.com/home)
+<a href="http://aislyn.justinwehrman.com/home" target="_blank">demo</a>
 
 ## Options
 * Page Load Time
@@ -38,7 +38,7 @@ This is a simple implementation which stores each screenshot to the filesystem i
 
 It is recommended to setup a cron job to run `clearScreenshotsDirectory` which will wipe out all *.png files from the __screenshots__ directory
 
-* The following will run `clearScreenshotsDirectory` at 11:00am every day of every month, each weekday
+* The following will run `clearScreenshotsDirectory` at 11:00pm every day of every month, each weekday
 
 
         crontab -e
